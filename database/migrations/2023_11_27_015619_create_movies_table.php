@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
             $table->string('judul');
 
             $table->foreignId('category_id')
@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('pemain');
             $table->string('foto_sampul');
             $table->timestamps();
-            $table->primary('id');
         });
     }
 
