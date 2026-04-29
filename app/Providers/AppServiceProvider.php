@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\MovieRepositoryInterface;
+use App\Repositories\MovieRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(MovieRepositoryInterface::class, MovieRepository::class);
     }
 
     /**
