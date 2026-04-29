@@ -4,12 +4,6 @@
 
 @section('content')
 
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>    
-@endif
-
 <h1>Popular Movie</h1>
 <div class="row">
     @foreach ($movies as $movie)
@@ -22,7 +16,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie['judul'] }}</h5>
-                        <p class="card-text">{{ $movie['sinopsis'] }}</p>
+                        <p class="card-text">{{ Str::limit($movie['sinopsis'], 100) }}</p>
                         <a href="/movie/{{ $movie['id'] }}" class="btn btn-success">Lihat Selanjutnya</a>
                     </div>
                 </div>
